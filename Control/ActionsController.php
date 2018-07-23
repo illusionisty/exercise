@@ -1,16 +1,39 @@
 <?php
+
+include_once __DIR__ . "/../Model/PlayersController.php";
+
 //-------------------------------------------------------------------------
 //The controller that responses to the information requests from the pages
 //-------------------------------------------------------------------------
 
 class ActionsController {
+
+	private $mPlayersController = null;	//manages players' data
+
+	public function __construct(){
+		$this->mPlayersController = new PlayersController();
+	}
 	
+	/**
+	 *Read players from the array
+	 *@return a string of players data in json format; null if the database is empty
+	 */
 	function getPlayers(){
-        $json = '[{"name":"Jonas Valenciunas","age":26,"job":"Center","salary":"4.66m"},{"name":"Kyle Lowry","age":32,"job":"Point Guard","salary":"28.7m"},{"name":"Demar DeRozan","age":28,"job":"Shooting Guard","salary":"26.54m"},{"name":"Jakob Poeltl","age":22,"job":"Center","salary":"2.704m"}]';
-		
-		return  $json;
+        
+		return $this->mPlayersController->getPlayers();
 	}
 
+	/**
+	 *Add $iPlayer to the players' database
+	 *@param $iPlayer a player's data in json format
+	 *@return true if writing $iPlayer successfully; false if fails to write $iPlayer
+	 */
+    public function writePlayer($iPlayer){
+
+		return $this->mPlayersController->writePlayer($iPlayer);
+	}	
+
+	
 }
 
 ?>

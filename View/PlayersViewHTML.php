@@ -1,12 +1,12 @@
 <?php
 
 //--------------------------------------
-//Players' viewer in HTML
+//Players' View in HTML
 //--------------------------------------
 
 include_once __DIR__ . "/../Control/ActionsController.php";
 
-class PlayersViewerHTML {
+class PlayersViewHTML {
 
 	private $players = null;	//string array
 	private $anActionsController; 
@@ -15,11 +15,28 @@ class PlayersViewerHTML {
 		$this->anActionsController = new ActionsController();
 	}
 
+	/**
+	 * Display players' information in HTML 
+	 */
 	public function display() {
 		
 		if( null == $players ){
-
+			
+			//test write player
+			/*
+			$testString = '{"name":"Testt Test","age":26,"job":"Center","salary":"4.66m"}';
+			if( false == $this->anActionsController->writePlayer($testString) ){
+			
+				echo "writing failed, PlayersViewHTML";
+			}
+			*/
+			
 			$playerJsonString = $this->anActionsController->getPlayers();
+
+			//if fail to read players
+			if( null == $playerJsonString ){	
+				return;
+			}
 
 			$this->players = json_decode($playerJsonString);
 		}
@@ -53,7 +70,7 @@ class PlayersViewerHTML {
 								//print keys and values
 								foreach( $player as $key=>$val){
 								?>
-									<span ><?= $key ?>: <?= $val ?></span>
+									<span ><?= ucfirst($key) ?>: <?= $val ?></span>
 									
 								<?php	
 								}
@@ -66,7 +83,6 @@ class PlayersViewerHTML {
                 </ul>
             </body>
             </html>
-
 
 		<?php
 	}//end display()

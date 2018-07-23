@@ -1,8 +1,8 @@
 <?php
 
-include_once "View/ViewersController.php";
+include_once "View/ViewsController.php";
 
-$aViewersController = new ViewersController();
-$aViewersController->display();
+$aViewsController = new ViewsController();
+$aViewsController->display();
 
 ?>
