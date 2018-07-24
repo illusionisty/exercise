@@ -51,7 +51,7 @@ class FileManipulator extends DataManipulator {
     public function writePlayer($iPlayer){
 		
 		if( null == $iPlayer ){
-			echo "Player information is empty. Cannot write. JsonManipulator";
+			echo "Player information is empty. Cannot write. FileManipulator";
 			return false;
 		}
 
