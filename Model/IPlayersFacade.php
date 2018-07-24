@@ -5,7 +5,7 @@
 
 interface IPlayersFacade {
 
-    public function getplayers();			//return an array of players
+    public function getplayers();			//return a string of players in json format
     public function writePlayer($iPlayer);	//add $iPlayer to the players' database
 }
 

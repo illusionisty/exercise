@@ -9,7 +9,6 @@ define("FILEDB_CONFIG_PATH", __DIR__ . "/FileDatabaseConfig.json");
 //----------------------------------------------------------------------
 class FileManipulator extends DataManipulator {
 
-	//$configFilePath = "FileDatabaseConfig.json";
 	
 	private $mJson = null;
 

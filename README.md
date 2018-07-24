@@ -1,13 +1,5 @@
-Development Exercise
+1	Introduction
+It is a players data management system, which is a web application based on PHP. The features include displaying players’ information and write a player’s information to the database. The system is composed of three primary components: the View component that provides display methods, the Controller component that responds to the requests from the pages, and the Model component which manages databases of players information. 
 
-  The following code is poorly designed and error prone. Refactor the objects below to follow a more SOLID design.
-  Keep in mind the fundamentals of MVVM/MVC and Single-responsibility when refactoring.
-
-  Further, the refactored code should be flexible enough to easily allow the addition of different display
-    methods, as well as additional read and write methods.
-
-  Feel free to add as many additional classes and interfaces as you see fit.
-
-  Note: Please create a fork of the https://github.com/BrandonLegault/exercise repository and commit your changes
-    to your fork. The goal here is not 100% correctness, but instead a glimpse into how you
-    approach refactoring/redesigning bad code. Commit often to your fork.
+2	Run the Application
+Run index.php. There are three types of databases. Switch between them by modifying the first line of Config.json in the Model folder. There are three options: array, json, and file.

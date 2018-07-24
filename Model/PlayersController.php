@@ -16,7 +16,7 @@ class PlayersController implements IPlayersFacade {
 
 	//create a players manipulator based on the database type in the config file
 	//return: true if creating the manipulator sucessfully; false if it fails
-	public function createManipulator(){
+	private function createManipulator(){
 
 		$jsondata = file_get_contents(CONTROLLER_CONFIG_PATH);
 
@@ -60,7 +60,7 @@ class PlayersController implements IPlayersFacade {
 	//add $player to the players' database
 	//param: string players
 	//return: true if writing player sucessfully; false if writing fails
-    public function writePlayer($player){
+    public function writePlayer($iPlayer){
 
 		if( null ==  $this->mPlayersManipulator ){
 
@@ -70,7 +70,7 @@ class PlayersController implements IPlayersFacade {
 			}
 		}
 
-		return $this->mPlayersManipulator->writePlayer($player);
+		return $this->mPlayersManipulator->writePlayer($iPlayer);
 	}
 }
 
