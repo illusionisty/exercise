@@ -18,7 +18,7 @@ class ActionsController {
 	 *Read players from the array
 	 *@return a string of players data in json format; null if the database is empty
 	 */
-	function getPlayers(){
+	public function getPlayers(){
         
 		return $this->mPlayersController->getPlayers();
 	}

@@ -22,7 +22,7 @@ class PlayersViewHTML {
 		
 		if( null == $this->mPlayers ){
 			
-			//test write player
+			//test writePlayer()
 			/*
 			$testString = '{"name":"Testt Test","age":26,"job":"Center","salary":"4.66m"}';
 			if( false == $this->mActionsController->writePlayer($testString) ){

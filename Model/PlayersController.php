@@ -14,8 +14,10 @@ class PlayersController implements IPlayersFacade {
 
 	private $mPlayersManipulator =  null;
 
-	//create a players manipulator based on the database type in the config file
-	//return: true if creating the manipulator sucessfully; false if it fails
+	/**
+	 * Create a players manipulator based on the database type in the config file
+	 * @Return true if creating the manipulator sucessfully; false if it fails
+	 */
 	private function createManipulator(){
 
 		$jsondata = file_get_contents(CONTROLLER_CONFIG_PATH);
@@ -41,8 +43,10 @@ class PlayersController implements IPlayersFacade {
 		return true;
 	}
 	
-	//Read the players information in the database
-	//return a string of players in json format
+	/**
+	 * Read the players information in the database
+	 * @Return a string of players in json format
+	 */
     public function getplayers(){
 
 		if( null ==  $this->mPlayersManipulator ){
@@ -57,9 +61,11 @@ class PlayersController implements IPlayersFacade {
 		return $this->mPlayersManipulator->getPlayers();
 	}
 
-	//add $player to the players' database
-	//param: string players
-	//return: true if writing player sucessfully; false if writing fails
+	/**
+	 * Add $player to the players' database
+	 * @Param: string players
+	 * @Return true if writing player sucessfully; false if writing fails
+	 */
     public function writePlayer($iPlayer){
 
 		if( null ==  $this->mPlayersManipulator ){
