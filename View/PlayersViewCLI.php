@@ -8,11 +8,11 @@ include_once __DIR__ . "/../Control/ActionsController.php";
 
 class PlayersViewCLI {
 
-	private $players = null;	//string in json
-	private $anActionsController; 
+	private $mPlayers = null;	//string in json
+	private $mActionsController; 
 
 	public function __construct(){
-		$this->anActionsController = new ActionsController();
+		$this->mActionsController = new ActionsController();
 	}
 
 	/**
@@ -20,19 +20,19 @@ class PlayersViewCLI {
 	 */
 	public function display() {
 
-		if( null == $this->players ){
+		if( null == $this->mPlayers ){
 
-			$playerJsonString = $this->anActionsController->getPlayers();
+			$playerJsonString = $this->mActionsController->getPlayers();
 			//if fail to read players
 			if( null == $playerJsonString ){	
 				return;
 			}
 
-			$this->players = json_decode($playerJsonString);
+			$this->mPlayers = json_decode($playerJsonString);
 		}
 
 		echo "Current Players: \n";
-		foreach($this->players as $player) {
+		foreach($this->mPlayers as $player) {
 
 			foreach( $player as $key=>$val){
 				$key = ucfirst($key);

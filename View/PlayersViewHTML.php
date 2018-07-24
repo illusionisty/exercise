@@ -8,11 +8,11 @@ include_once __DIR__ . "/../Control/ActionsController.php";
 
 class PlayersViewHTML {
 
-	private $players = null;	//string array
-	private $anActionsController; 
+	private $mPlayers = null;	//string array
+	private $mActionsController; 
 
 	public function __construct(){
-		$this->anActionsController = new ActionsController();
+		$this->mActionsController = new ActionsController();
 	}
 
 	/**
@@ -20,25 +20,25 @@ class PlayersViewHTML {
 	 */
 	public function display() {
 		
-		if( null == $this->players ){
+		if( null == $this->mPlayers ){
 			
 			//test write player
 			/*
 			$testString = '{"name":"Testt Test","age":26,"job":"Center","salary":"4.66m"}';
-			if( false == $this->anActionsController->writePlayer($testString) ){
+			if( false == $this->mActionsController->writePlayer($testString) ){
 			
 				echo "writing failed, PlayersViewHTML";
 			}
 			*/
 			
-			$playerJsonString = $this->anActionsController->getPlayers();
+			$playerJsonString = $this->mActionsController->getPlayers();
 
 			//if fail to read players
 			if( null == $playerJsonString ){	
 				return;
 			}
 
-			$this->players = json_decode($playerJsonString);
+			$this->mPlayers = json_decode($playerJsonString);
 		}
 		
 		?>
@@ -60,7 +60,7 @@ class PlayersViewHTML {
             <div>
                 <span class="title">Current Players</span>
                 <ul>
-                    <?php foreach($this->players as $player) { ?>
+                    <?php foreach($this->mPlayers as $player) { ?>
                        
 					   
 					   <li>
