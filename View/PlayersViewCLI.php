@@ -8,7 +8,7 @@ include_once __DIR__ . "/../Control/ActionsController.php";
 
 class PlayersViewCLI {
 
-	private $players = null;	//string array
+	private $players = null;	//string in json
 	private $anActionsController; 
 
 	public function __construct(){
@@ -20,7 +20,7 @@ class PlayersViewCLI {
 	 */
 	public function display() {
 
-		if( null == $players ){
+		if( null == $this->players ){
 
 			$playerJsonString = $this->anActionsController->getPlayers();
 			//if fail to read players

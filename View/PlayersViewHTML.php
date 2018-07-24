@@ -20,7 +20,7 @@ class PlayersViewHTML {
 	 */
 	public function display() {
 		
-		if( null == $players ){
+		if( null == $this->players ){
 			
 			//test write player
 			/*
